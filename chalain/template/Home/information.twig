@@ -1,0 +1,14 @@
+<div class="bloc-info" id="info">
+
+    <div class="infos">
+        <h2>{% set infos = traduction.infos %} {% trans infos %}</h2>
+        {% if informations %}
+
+            {% for information in informations %}
+                {{ information.texte | striptags | markdown }}
+                <hr>
+            {% endfor %}
+
+        {% endif %}
+    </div>
+</div>

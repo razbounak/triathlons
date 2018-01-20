@@ -1,0 +1,12 @@
+<div class="bloc-titre grey medal" id="resultat">
+    <div class="titre">{% set result = traduction.result %}{% trans result %}</div>
+</div>
+
+<section class="bgf7">
+    <div class="content podium">
+        {% for resultat in resultats %}
+            <a href="https://chalain.triathlons.fr/fichier/{{ resultat.fichier }}" target="_blank">{{ resultat.nom }}</a>
+        {% endfor %}
+        <a href="Resultats" class="archive">{% set archive = traduction.archive %}{% trans archive %}</a>
+    </div>
+</section>

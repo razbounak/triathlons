@@ -1,0 +1,46 @@
+<div class="bloc">
+    <div class="content">
+        <div class="bloc-w60 bloc-texte">
+            {% set welcome = traduction.welcome %} {% trans welcome %}
+
+            <p>Rendez-vous le {{ compteur.temps | localizeddate("medium", "none", null, null, "d LLLL yyyy") }} !</p>
+
+            <div class="lien"><a href="http://www.juralacs.com/page-decouvrir-lacs-lac-de-chalain,13.html" target="_blank">Découvrez le Lac de Chalain</a></div>
+
+        </div><!--
+    --><div class="bloc-w40 zone-meteo">
+            <div class="meteo">
+                <div id="cont_a0e5fec1ee91fd0887987e68b7faff36"><script type="text/javascript" async src="https://www.tameteo.com/wid_loader/a0e5fec1ee91fd0887987e68b7faff36"></script></div>
+            </div>
+            <div class="degres">
+                {% if temperature.online == 1 %}
+                    <div class="bloc-w70 temperature">
+                        <div class="temp">
+                            {{ temperature.degres }}°C
+                        </div>
+                        <div class="temp-date">au {{ temperature.date | localizeddate("medium", "none", null, null, "cccc d LLLL yyyy à k:mm") }}</div>
+                        <div class="temp-info"><i class="fa fa-warning" aria-hidden="true"></i> {% set arrondi = traduction.arrondi %}{% trans arrondi %}</div>
+                    </div><!--
+                    --><div class="bloc-w30 combi">
+                    {% if temperature.degres <= 16 %}
+                        <div class="bord lac"></div><div class="wrap">
+                            <img src="{% set img_obligatoire = traduction.img_obligatoire %}{% trans img_obligatoire %}" alt="">
+                            <p class="bleu">{% set combi_obligatoire = traduction.combi_obligatoire %}{% trans combi_obligatoire %}</p>
+                        </div>
+                    {% elseif temperature.degres >= 17 and temperature.degres <= 23 %}
+                        <div class="bord verdure"></div><div class="wrap">
+                            <img src="{% set img_accept = traduction.img_accept %}{% trans img_accept %}" alt="">
+                            <p class="vert">{% set combi_accept = traduction.combi_accept %}{% trans combi_accept %}</p>
+                        </div>
+                    {% elseif temperature.degres >= 24 %}
+                        <div class="bord rouge"></div><div class="wrap">
+                            <img src="{% set img_interdit = traduction.img_interdit %}{% trans img_interdit %}" alt="">
+                            <p class="red">{% set combi_interdit = traduction.combi_interdit %}{% trans combi_interdit %}</p>
+                        </div>
+                    {% endif %}
+                   </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

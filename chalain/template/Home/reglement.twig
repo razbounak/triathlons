@@ -1,0 +1,15 @@
+<div class="bloc-titre" id="regle">
+    <div class="titre">{% set regle = traduction.regle %} {% trans regle %}</div>
+</div>
+<div class="bggreylight">
+    <div class="content">
+        {% for reglement in reglements %}
+            <div class="bloc-regle">
+                <a href="http://chalain.triathlons.fr/fichier/{{ reglement.fichier }}" target="_blank">
+                    <div class="icone icon-{{ reglement.icone }}"></div>
+                    <div class="title-reglement">{{ reglement.titre }}</div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>

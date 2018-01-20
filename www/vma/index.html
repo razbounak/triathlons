@@ -1,0 +1,994 @@
+<!DOCTYPE HTML>
+<html lang="FR">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <meta name="description" content="Calculateur de VMA - Triath'Lons">
+    <title>Calculateur VMA | Triath'Lons</title>
+    <link href="assets/css/vma.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript"  src="assets/js/vma.js"></script>
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#262c42">
+    <meta name="msapplication-TileColor" content="#262c42">
+    <meta name="msapplication-TileImage" content="mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
+
+<div class="logo"><img src="../image/triathlogo.png" alt="Triath'Lons"></div>
+
+<div class="pc">
+    <h1>INFORMATION : site optimisé pour les smartphones.</h1>
+</div>
+
+<h1>Calculez votre temps de parcours</h1>
+
+<p>Saisissez votre VMA</p>
+
+<form id="calc" name="calc" action="javascript:calculer()" method="post">
+    <div class="bloc-label">KM/H</div><!--
+    --><div class="bloc-input"><input type="text" name="vma"></div>
+    <br/>
+    <button type="reset" class="reset">Réinitialiser</button><!--
+    --><button type="submit" class="submit">Calculer</button>
+
+    <h1>Orientation de l'entraînement</h1>
+
+    <div class="form-group">
+        <label>Allure lente : 65 % VMA (temps au km)</label>
+        <input type="text" name="Vmad1000_65_bis">
+    </div>
+    <div class="form-group">
+        <label>Allure moyenne : 70 % VMA (temps au km)</label>
+        <input type="text" name="Vmad1000_70_bis">
+    </div>
+    <div class="form-group">
+        <label>Allure rapide : 80 % VMA (temps au km)</label>
+        <input type="text" name="Vmad1000_80_bis">
+    </div>
+    <div class="form-group">
+        <label>Allure vite : 90 % VMA (temps au km)</label>
+        <input type="text" name="Vmad1000_90_2_bis">
+    </div>
+
+    <h1>Travail intermittent</h1>
+<ul>
+    <li class="bloc">
+        <h2 class="titre">VMA 115 %</h2>
+        <span>+</span>
+        <div class="bloc-label">V / 100m</div>
+        <div class="bloc-input"><input type="text" name="Vmad100_115_bis"/></div>
+        <div class="bloc-label">V / 1000m</div>
+        <div class="bloc-input"><input type="text" name="Vmad1000_115_bis"/></div>
+        <div class="bloc-label">dist. / 30"</div>
+        <div class="bloc-input"><input type="text" name="Vmat30_115_bis"/></div>
+        <div class="bloc-label">km/h</div>
+        <div class="bloc-input"><input type="text" name="Vmat115_kmh"/></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">VMA 110 %</h2>
+        <span>+</span>
+        <div class="bloc-label">V / 100m</div>
+        <div class="bloc-input"><input type="text" name="Vmad100_110_bis"/></div>
+        <div class="bloc-label">V / 1000m</div>
+        <div class="bloc-input"><input type="text" name="Vmad1000_110_bis"/></div>
+        <div class="bloc-label">dist. / 30"</div>
+        <div class="bloc-input"><input type="text" name="Vmat30_110_bis"/></div>
+        <div class="bloc-label">km/h</div>
+        <div class="bloc-input"><input type="text" name="Vmat110_kmh"/></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">VMA 105 %</h2>
+        <span>+</span>
+        <div class="bloc-label">V / 100m</div>
+        <div class="bloc-input"><input type="text" name="Vmad100_105_bis"/></div>
+        <div class="bloc-label">V / 1000m</div>
+        <div class="bloc-input"><input type="text" name="Vmad1000_105_bis"/></div>
+        <div class="bloc-label">dist. / 30"</div>
+        <div class="bloc-input"><input type="text" name="Vmat30_105_bis"/></div>
+        <div class="bloc-label">km/h</div>
+        <div class="bloc-input"><input type="text" name="Vmat105_kmh"/></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">VMA 100 %</h2>
+        <span>+</span>
+        <div class="bloc-label">V / 100m</div>
+        <div class="bloc-input"><input type="text" name="Vmad100_100_bis"></div>
+        <div class="bloc-label">V / 1000m</div>
+        <div class="bloc-input"><input type="text" name="Vmad1000_100_bis"/></div>
+        <div class="bloc-label">dist. / 30"</div>
+        <div class="bloc-input"><input type="text" name="Vmat30_100_bis"/></div>
+        <div class="bloc-label">km/h</div>
+        <div class="bloc-input"><input type="text" name="Vmat100_kmh"/></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">VMA 95 %</h2>
+        <span>+</span>
+        <div class="bloc-label">V / 100m</div>
+        <div class="bloc-input"><input type="text" name="Vmad100_95_bis"></div>
+        <div class="bloc-label">V / 1000m</div>
+        <div class="bloc-input"><input type="text" name="Vmad1000_95_bis"/></div>
+        <div class="bloc-label">dist. / 30"</div>
+        <div class="bloc-input"><input type="text" name="Vmat30_95_bis"/></div>
+        <div class="bloc-label">km/h</div>
+        <div class="bloc-input"><input type="text" name="Vmat95_kmh"/></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">VMA 90 %</h2>
+        <span>+</span>
+        <div class="bloc-label">V / 100m</div>
+        <div class="bloc-input"><input type="text" name="Vmad100_90_bis"></div>
+        <div class="bloc-label">V / 1000m</div>
+        <div class="bloc-input"><input type="text" name="Vmad1000_90_bis"/></div>
+        <div class="bloc-label">dist. / 30"</div>
+        <div class="bloc-input"><input type="text" name="Vmat30_90_bis"/></div>
+        <div class="bloc-label">km/h</div>
+        <div class="bloc-input"><input type="text" name="Vmat90_kmh"/></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">VMA 85 %</h2>
+        <span>+</span>
+        <div class="bloc-label">V / 100m</div>
+        <div class="bloc-input"><input type="text" name="Vmad100_85_bis"></div>
+        <div class="bloc-label">V / 1000m</div>
+        <div class="bloc-input"><input type="text" name="Vmad1000_85_bis"/></div>
+        <div class="bloc-label">dist. / 30"</div>
+        <div class="bloc-input"><input type="text" name="Vmat30_85_bis"/></div>
+        <div class="bloc-label">km/h</div>
+        <div class="bloc-input"><input type="text" name="Vmat85_kmh"/></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">VMA 80 %</h2>
+        <span>+</span>
+        <div class="bloc-label">V / 100m</div>
+        <div class="bloc-input"><input type="text" name="Vmad100_80_bis"/></div>
+        <div class="bloc-label">V / 1000m</div>
+        <div class="bloc-input"><input type="text" name="Vmad1000_80_ter"/></div>
+        <div class="bloc-label">dist. / 30"</div>
+        <div class="bloc-input"><input type="text" name="Vmat30_80_bis"/></div>
+        <div class="bloc-label">km/h</div>
+        <div class="bloc-input"><input type="text" name="Vmat80_kmh"/></div>
+    </li>
+</ul>
+    <h1>Temps par distance</h1>
+<ul>
+    <li class="bloc"><li class="bloc">
+    <h2 class="titre">Distance 50m</h2>
+    <span>+</span>
+    <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad50_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad50_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad50_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad50_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad50_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad50_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad50_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad50_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad50_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad50_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad50_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad50_115"></div>
+</li>
+        <h2 class="titre">Distance 100m</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad100_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad100_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad100_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad100_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad100_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad100_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad100_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad100_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad100_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad100_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad100_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad100_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Distance 200m</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad200_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad200_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad200_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad200_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad200_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad200_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad200_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad200_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad200_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad200_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad200_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad200_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Distance 300m</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad300_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad300_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad300_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad300_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad300_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad300_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad300_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad300_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad300_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad300_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad300_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad300_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Distance 400m</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad400_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad400_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad400_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad400_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad400_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad400_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad400_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad400_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad400_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad400_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad400_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad400_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Distance 500m</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad500_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad500_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad500_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad500_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad500_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad500_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad500_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad500_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad500_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad500_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad500_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad500_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Distance 600m</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad600_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad600_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad600_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad600_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad600_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad600_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad600_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad600_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad600_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad600_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad600_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad600_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Distance 800m</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad800_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad800_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad800_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad800_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad800_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad800_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad800_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad800_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad800_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad800_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad800_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad800_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Distance 1000m</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1000_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1000_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1000_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1000_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1000_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1000_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1000_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1000_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1000_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1000_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1000_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1000_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Distance 1200m</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1200_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1200_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1200_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1200_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1200_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1200_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1200_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1200_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1200_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1200_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1200_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1200_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Distance 1500m</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1500_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1500_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1500_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1500_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1500_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1500_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1500_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1500_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1500_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1500_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1500_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad1500_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Distance 2000m</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad2000_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad2000_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad2000_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad2000_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad2000_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad2000_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad2000_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad2000_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad2000_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad2000_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad2000_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad2000_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Distance 3000m</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad3000_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad3000_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad3000_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad3000_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad3000_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad3000_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad3000_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad3000_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad3000_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad3000_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad3000_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmad3000_115"></div>
+    </li>
+</ul>
+    <h1>Distance par temps</h1>
+<ul>
+    <li class="bloc">
+        <h2 class="titre">Durée 30s</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat30_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat30_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat30_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat30_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat30_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat30_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat30_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat30_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat30_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat30_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat30_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat30_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Durée 45 s</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat45_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat45_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat45_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat45_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat45_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat45_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat45_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat45_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat45_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat45_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat45_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat45_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Durée 1 min</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat60_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat60_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat60_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat60_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat60_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat60_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat60_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat60_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat60_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat60_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat60_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat60_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Durée 1 min 15s</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat75_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat75_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat75_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat75_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat75_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat75_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat75_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat75_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat75_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat75_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat75_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat75_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Durée 1 min 30s</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat90_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat90_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat90_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat90_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat90_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat90_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat90_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat90_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat90_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat90_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat90_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat90_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Durée 2 min</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat120_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat120_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat120_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat120_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat120_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat120_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat120_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat120_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat120_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat120_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat120_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat120_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Durée 2 min 30s</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat150_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat150_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat150_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat150_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat150_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat150_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat150_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat150_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat150_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat150_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat150_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat150_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Durée 3 min</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat180_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat180_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat180_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat180_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat180_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat180_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat180_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat180_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat180_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat180_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat180_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat180_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Durée 4 min</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat240_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat240_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat240_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat240_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat240_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat240_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat240_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat240_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat240_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat240_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat240_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat240_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Durée 5 min</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat300_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat300_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat300_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat300_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat300_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat300_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat300_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat300_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat300_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat300_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat300_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat300_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Durée 6 min</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat360_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat360_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat360_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat360_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat360_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat360_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat360_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat360_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat360_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat360_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat360_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat360_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Durée 7 min</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat420_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat420_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat420_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat420_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat420_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat420_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat420_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat420_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat420_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat420_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat420_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat420_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Durée 8 min</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat480_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat480_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat480_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat480_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat480_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat480_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat480_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat480_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat480_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat480_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat480_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat480_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Durée 9 min</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat540_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat540_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat540_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat540_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat540_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat540_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat540_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat540_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat540_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat540_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat540_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat540_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Durée 10 min</h2>
+        <span>+</span>
+        <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat600_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat600_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat600_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat600_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat600_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat600_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat600_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat600_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat600_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat600_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat600_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat600_115"></div>
+    </li>
+    <li class="bloc">
+        <h2 class="titre">Durée 15 min</h2>
+        <span>+</span>
+            <div class="bloc-label">60 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat900_60"></div><!--
+        --><div class="bloc-label">65 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat900_65"></div><!--
+        --><div class="bloc-label">70 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat900_70"></div><!--
+        --><div class="bloc-label">75 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat900_75"></div><!--
+        --><div class="bloc-label">80 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat900_80"></div><!--
+        --><div class="bloc-label">85 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat900_85"></div><!--
+        --><div class="bloc-label">90 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat900_90"></div><!--
+        --><div class="bloc-label">95 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat900_95"></div><!--
+        --><div class="bloc-label">100 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat900_100"></div><!--
+        --><div class="bloc-label">105 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat900_105"></div><!--
+        --><div class="bloc-label">110 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat900_110"></div><!--
+        --><div class="bloc-label">115 %</div><!--
+        --><div class="bloc-input"><input type="text" name="Vmat900_115"></div>
+    </li>
+</ul>
+</form>
+<p class="return"><a href="../index.php">Retour sur le site Triath'Lons</a></p>
+<p style="text-align: center;">
+    Triath'Lons | Franck Contet - FCWD
+</p>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/effets.js"></script>
+</body>
+</html>

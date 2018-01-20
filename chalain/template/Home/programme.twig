@@ -1,0 +1,11 @@
+<div class="bloc-titre" id="prog">
+    <div class="titre">{% set programme = traduction.programme %} {% trans programme %}</div>
+</div>
+
+<div class="programme">
+    <div class="content">
+        {% for programme in programmes %}
+            {{ programme.texte | markdown }}
+        {% endfor %}
+    </div>
+</div>

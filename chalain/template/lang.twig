@@ -1,0 +1,14 @@
+<a class='dropdown-button btn-drap' href='#' data-activates='dropdown1'>
+    {% if cookie.lang == 'fr_FR' %}
+        <img src="theme/drap-fr.png" alt="" title="Français">
+    {% elseif cookie.lang == 'en_EN' %}
+        <img src="theme/drap-en.png" alt="" title="English">
+    {% elseif cookie.lang == 'nl_NL' %}
+        <img src="theme/drap-nl.png" alt="" title="Nederlands">
+    {% endif %}
+</a>
+<ul id='dropdown1' class='dropdown-content'>
+    <li><a href="FR">FR</a></li>
+    <li><a href="EN">EN</a></li>
+    <li><a href="NL">NL</a></li>
+</ul>

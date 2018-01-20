@@ -1,0 +1,54 @@
+{% extends 'layout.twig' %}
+
+{% block head %} Triathlon de Chalain - {{ course.name }} {% endblock %}
+
+{# ZONE CONTENT #}
+{% block content %}
+
+    {% include 'header_content.twig' %}
+
+    <div class="bloc-titre ombre">
+        <div class="titre">{% set course_present = traduction.course_present %}{% trans course_present %} : <span>{{ course.name }}</span>
+            <div class="bouton-return"><a href="Accueil" title="{% set return_home = traduction.return_home %}{% trans return_home %}">
+                    <svg height="24" full="#ffffff" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                    </svg></a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="text">
+            <div class="bloc-course">
+                <h2>Informations: </h2>
+                <div class="desc">
+                    {{ course.description | markdown }}
+                </div>
+                <h2>Distance</h2>
+                <div class="bloc-w30">
+                    <div class="titre-course">{% set natation = traduction.natation %}{% trans natation %}</div>
+                    <div class="distance-course">{{ course.swim }}</div>
+                </div><!--
+            --><div class="bloc-w30">
+                    <div class="titre-course">{% set velo = traduction.velo %}{% trans velo %}</div>
+                    <div class="distance-course">{{ course.velo }}</div>
+                </div><!--
+            --><div class="bloc-w30">
+                    <div class="titre-course">{% set cap = traduction.cap %}{% trans cap %}</div>
+                    <div class="distance-course">{{ course.cap }}</div>
+                </div>
+                <h2>{% set tarif = traduction.tarif %} {% trans tarif %}</h2>
+                <div class="bloc-w50">
+                    <div class="tarif-titre">{{ course.prix }}€ </div>
+                </div><!--
+            --><div class="bloc-w50">
+                    <div class="tarif-nl">{{ course.prix_nl }}€ {% set licence = traduction.licence %}{% trans licence %}</div>
+                </div>
+                <p class="submit">
+                    <a id="button-blue" href="{{ course.url }}">{% set inscrire = traduction.inscrire %}{% trans inscrire %}</a>
+                    <div class="ease"></div>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

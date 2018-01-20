@@ -1,0 +1,46 @@
+{% extends 'layout.twig' %}
+
+{# ZONE HEAD #}
+{% block head %}Corrida du Parc - Triath'Lons {% endblock %}
+{% block description %} {% endblock %}
+
+{# ZONE CONTENT #}
+{% block content %}
+
+    {% include 'home/header.twig' %}
+
+    <div class="bloc-titre" id="actu">
+        <div class="titre">Actualités
+            <div class="bouton-add"><a href="Actualites" title="Actualités">
+                    <svg height="24" full="#ffffff" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                    </svg></a>
+            </div>
+        </div>
+    </div>
+    <section class="news">
+        <div class="content">
+            <article>
+                {% for article in article %}
+
+                    <div class="article">
+                        <h2>{{ article.news_title }}</h2>
+                        <div class="date">{{ article.news_date | localizeddate("medium", "none", null, null, "cccc, d LLLL yyyy") | title }}</div>
+                        <div class="desc">{{ article.news_body | truncate(280, true, '...') | striptags | markdown }}</div>
+                        <div class="link"><a href="actualite-{{ article.news_id }}">Lire la suite...</a></div>
+                    </div>
+
+                {% endfor %}
+            </article>
+        </div>
+    </section>
+
+    {% include "home/course.twig" %}
+    {% include "home/programme.twig" %}
+    {% include "home/reglementation.twig" %}
+    {% include "home/partenaire.twig" %}
+    {% include "home/resultat.twig" %}
+    {% include "home/contact.twig" %}
+    
+{% endblock %}

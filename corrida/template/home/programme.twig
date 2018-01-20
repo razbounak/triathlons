@@ -1,0 +1,11 @@
+<div class="bloc-titre" id="prog">
+    <div class="titre">Programme</div>
+</div>
+
+<div class="programme bgf7">
+    <div class="content texte">
+        {% for programme in programmes %}
+            {{ programme.text | markdown }}
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="bloc-titre" id="partenaire">
+    <div class="titre">Nos Partenaires</div>
+</div>
+<div class="content">
+    <div class="sous-titre">Découvrez le site web de nos partenaires</div>
+    <div id="sponsors">
+        {% for partenaire in partenaires %}
+            <div class="sponsor"><a href="{{ partenaire.site }}" target="_blank"><img class="img-responsive" src="images/sponsors/{{ partenaire.image }}" alt="{{ partenaire.nom }}"/> </a></div>
+        {% endfor %}
+    </div>
+    <p class="aright info-sponsor"><a href="Contact">Vous souhaitez devenir partenaire, contactez-nous</a></p>
+    <script>jQuery(document).ready(function($){ $("#sponsors").owlCarousel({ autoPlay: true, pagination: false }); });
+    </script>
+</div>

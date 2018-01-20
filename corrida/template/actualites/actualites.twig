@@ -1,0 +1,39 @@
+{% extends 'layout.twig' %}
+
+{# ZONE HEAD #}
+{% block head %} Actualités | Corrida du Parc - Triath'Lons {% endblock %}
+
+{# ZONE CONTENT #}
+{% block content %}
+
+    {% include 'header.twig' %}
+
+    <div class="bloc-titre ombre">
+        <div class="titre">Actualités</span>
+            <div class="bouton-return"><a href="Accueil" title="Retour à l'accueil">
+                    <svg height="24" full="#ffffff" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                    </svg></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+
+        {% for article in articles %}<!-- --><div class="actu">
+            <div class="image"><img src="images/{{ article.image }}" alt=""></div>
+            <div class="bouton-add-medium">
+                <a href="actualite-{{ article.news_id }}" title="Lire l'article">
+                    <svg height="24" full="#ffffff" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="titre-actu">{{ article.news_title }}</div>
+        </div><!-- -->
+        {% endfor %}
+    </div>
+
+{% endblock %}

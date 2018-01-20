@@ -1,0 +1,60 @@
+# Redirection 301
+RewriteEngine on
+RewriteCond %{HTTPS} !=on
+RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+Options -Indexes
+ErrorDocument 404 /404.php
+ErrorDocument 403 "Désolé, vous n'êtes pas autorisé à d'accéder à ce fichier"
+ErrorDocument 401 /401.html
+
+# --- TYPE MIME ---
+# Associer un type MIME à certaines extensions
+
+# JavaScript / JSON
+# (écrase les types MIME text/javascript erronés)
+AddType application/javascript                js jsonp
+AddType application/json                      json
+
+# Audio
+AddType audio/ogg                             oga ogg
+AddType audio/mp4                             m4a f4a f4b
+
+# Vidéo
+AddType video/ogg                             ogv
+AddType video/mp4                             mp4 m4v f4v f4p
+AddType video/webm                            webm
+AddType video/x-flv                           flv
+
+# SVG
+AddType     image/svg+xml                     svg svgz
+AddEncoding gzip                              svgz
+
+# Fontes
+AddType application/vnd.ms-fontobject         eot
+AddType application/x-font-ttf                ttf ttc
+AddType font/opentype                         otf
+AddType application/x-font-woff               woff
+
+# Formats divers
+AddType image/x-icon                          ico
+AddType image/webp                            webp
+AddType text/cache-manifest                   appcache manifest
+AddType text/x-component                      htc
+AddType application/xml                       rss atom xml rdf
+AddType application/x-web-app-manifest+json   webapp
+AddType text/x-vcard                          vcf
+
+
+<IfModule mod_expires.c>
+ ExpiresActive On
+ ExpiresDefault "access plus 7200 seconds"
+ ExpiresByType image/png "access plus 2592000 seconds"
+ ExpiresByType image/ico "access plus 2592000 seconds"
+ ExpiresByType image/icon "access plus 2592000 seconds"
+ ExpiresByType image/x-icon "access plus 2592000 seconds"
+ ExpiresByType text/css "access plus 2592000 seconds"
+ ExpiresByType text/javascript "access plus 2592000 seconds"
+ ExpiresByType application/javascript A2592000
+ ExpiresByType application/x-javascript "access plus 2592000 seconds"
+ </IfModule>

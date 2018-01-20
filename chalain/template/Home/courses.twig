@@ -1,0 +1,53 @@
+<div class="bloc-titre" id="courses">
+    <div class="titre">{% set course = traduction.course %} {% trans course %} & {% set inscrit = traduction.inscrit %} {% trans inscrit %}</div>
+</div>
+
+<div class="bggreylight">
+    <div class="content">
+        {% set nb = 1 %}
+    {% for course in courses %}
+        <div class="course">
+            <div class="flag"><i class="fa fa-flag-checkered" aria-hidden="true"></i></div>
+            <div class="plus"><a href="Course-{{ course.seo }}-{{ course.id }}" title="{% set detail_course = traduction.detail_course %}{% trans detail_course %} {{ course.name }}"><svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                    </svg></a></div>
+            <div class="titre-course">{{ course.name }}</div>
+            <div class="discipline">
+                <div class="nat">
+                    <div class="title">{% set natation = traduction.natation %}{% trans natation %}</div>
+                    <span>{{ course.swim }}</span>
+                </div><!--
+                --><div class="velo">
+                    <div class="title">{% set velo = traduction.velo %}{% trans velo %}</div>
+                    <span>{{ course.velo }}</span>
+                </div><!--
+                --><div class="cap">
+                    <div class="title">{% set cap = traduction.cap %}{% trans cap %}</div>
+                    <span>{{ course.cap }}</span>
+                </div>
+            </div>
+            <div class="tarif">
+                <div class="title-price">{% set tarif = traduction.tarif %} {% trans tarif %}</div><!--
+                --><div class="price">{{ course.prix }}<span class="small"><i class="fa fa-eur" aria-hidden="true"></i></span></div><!--
+                --><div class="pricenl">
+                    <div class="haut">{{ course.prix_nl }}<span class="small"><i class="fa fa-eur" aria-hidden="true"></i></span></div>
+                    <div class="nl small bas">{% set licence = traduction.licence %}{% trans licence %}</div>
+                </div>
+            </div>
+            <div class="texte">
+                {{ course.extrait | truncate(90, true, '...') | markdown }}
+            </div>
+            <div class="btn-link"><a href="{{ course.url }}">{% set inscrire = traduction.inscrire %}{% trans inscrire %}</a></div>
+        </div>
+    {% endfor %}
+        <p class="aright info-sponsor">Pour tout renseignement sur les inscriptions : <a href="mailto:inscription.chalain@triathlons.fr">inscription.chalain@triathlons.fr</a></p>
+    </div>
+</div>
+<div class="bloc-w100 bggrey">
+    <div class="content">
+        {% for inscrit in inscrits %}<!--
+            --><div class="bloc-w50 bouton"><a href="{{ inscrit.url }}" class="btn-orange" target="_blank">{{ inscrit.name }}</a></div><!--
+        -->{% endfor %}
+    </div>
+</div>

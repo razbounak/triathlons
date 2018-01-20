@@ -1,0 +1,21 @@
+<div class="button_container" id="toggle">
+    <span class="top"></span>
+    <span class="middle"></span>
+    <span class="bottom"></span>
+</div>
+<div class="overlay" id="overlay">
+    <nav class="overlay-menu">
+        <ul>
+            <li><a href="Accueil">{% set accueil = traduction.accueil %}{% trans %} {{ accueil }}{% endtrans %}</a></li>
+            <li><a href="Actualites">{% set actu = traduction.actu %} {% trans actu %}</a></li>
+            <li><a href="index.php#info">{% set infos = traduction.infos %} {% trans infos %}</a></li>
+            <li><a href="index.php#courses">{% set course = traduction.course %} {% trans course %}</a></li>
+            <li><a href="index.php#courses">{% set inscrit = traduction.inscrit %} {% trans inscrit %}</a></li>
+            <li><a href="index.php#partenaire">{% set sponsor = traduction.sponsor %} {% trans sponsor %}</a></li>
+            <li><a href="index.php#prog">{% set programme = traduction.programme %} {% trans programme %}</a></li>
+            <li><a href="index.php#regle">{% set regle = traduction.regle %} {% trans regle %}</a></li>
+            <li><a href="index.php#resultat">Résultats</a></li>
+            <li><a href="Contact">{% set contact = traduction.contact %} {% trans contact %}</a></li>
+        </ul>
+    </nav>
+</div>

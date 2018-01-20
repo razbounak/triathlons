@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>{% block head %} Triath'Lons {% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta name="author" content="Franck Contet - FCWD Agence Web"/>
+    <link rel="stylesheet" href="assets/css/app.css"/>
+    <link rel="stylesheet" href="assets/css/carousel.css"/>
+    <!-- Zone métadonnées -->
+    <meta property="og:site_name"    content="Triathlon de Chalain | Triath'Lons"/>
+    <meta property="og:locale"       content="fr_FR"/>
+    <meta property="og:type"         content="website"/>
+    <meta property="og:image"        content="{%if block("image_facebook") is defined%}{{block("image_facebook")}}{%else%}http://chalain.triathlons.fr/images/triathlon-2017.jpg{%endif%}"/>
+    <meta property="og:title"        content="{% if block("title_facebook") is defined %} {{ block("title_facebook") }}{% else %}Triathlon de Chalain 2017{% endif %}"/>
+    <meta property="og:description"  content="{% if block("content_facebook") is defined %} {{ block("content_facebook") }}{% else %}Participez au triathlon de chalain dans un lieu idyllique. Inscrivez-vous !{% endif %}"/>
+    <meta property="og:url"          content="{% if block("url_facebook") is defined %} {{ block("url_facebook") }}{% else %}http://chalain.triathlons.fr/index.php{% endif %}">
+    <meta name="twitter:card"        content="summary"/>
+    <meta name="twitter:site"        content="{% if block("url_twitter") is defined %} {{ block("url_twitter") }}{% else %}http://chalain.triathlons.fr/index.php{% endif %}"/>
+    <meta name="twitter:title"       content="{% if block("title_twitter") is defined %} {{ block("title_twitter") }}{% else %}Triathlon de Chalain 2017{% endif %}"/>
+    <meta name="twitter:description" content="{% if block("content_twitter") is defined %} {{ block("content_twitter") }}{% else %}Participez au triathlon de chalain dans un lieu idyllique. Inscrivez-vous !{% endif %} !"/>
+    <meta name="twitter:image:src"   content="{%if block("image_twitter") is defined%}{{block("image_twitter")}}{%else%}http://chalain.triathlons.fr/images/triathlon-2017.jpg{%endif%}">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#111111">
+    <meta name="msapplication-TileColor" content="#111111">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <meta name="theme-color" content="#111111">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <script src="assets/js/jquery8.js"></script>
+</head>
+<body>
+{% include 'header.twig' %}
+
+{% block content %}
+
+{% endblock %}
+<footer>
+    <div class="footer content">
+        <div class="bloc-w30">
+            <div class="footer-logo">
+                <img src="theme/logo-footer.png" alt="">
+                {% set organisation = traduction.organisation %} {% trans %} {{ organisation }}{% endtrans %}
+            </div>
+        </div><!--
+        --><div class="bloc-w70">
+            <div class="url-footer">
+                <a href="Accueil">{% set accueil = traduction.accueil %}{% trans %} {{ accueil }}{% endtrans %}</a>
+                <a href="Actualites">{% set actu = traduction.actu %} {% trans actu %}</a>
+                <a href="Contact">{% set contact = traduction.contact %} {% trans contact %}</a>
+                <a href="index.php#courses">{% set course = traduction.course %} {% trans course %}</a>
+                <a href="index.php#info">{% set infos = traduction.infos %} {% trans infos %}</a>
+                <a href="index.php#courses">{% set inscrit = traduction.inscrit %} {% trans inscrit %}</a>
+                <a href="index.php?page=partenaire">{% set sponsor = traduction.sponsor %} {% trans sponsor %}</a>
+                <a href="index.php#regle">{% set regle = traduction.regle %} {% trans regle %}</a>
+                <a href="index.php#prog">{% set programme = traduction.programme %} {% trans programme %}</a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="footer-info">
+        <p>&copy; 1987 - {{ "now"|date('Y') }} Triath’Lons / <a href="Mentions-legales">{% set mentions = traduction.mentions %}{% trans mentions %}</a> / {% set creation = traduction.creation %}{% trans creation %}  : <a href="https://www.fcwd.fr/" target="_blank">Franck Contet - FCWD  &reg;</a></p>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src="assets/js/carousel.min.js"></script>
+<script src="assets/js/jquery.countdown.js"></script>
+<script src='assets/js/jquery.min.js'></script>
+<script src="assets/js/materialize.min.js"></script>
+<script src="assets/js/dropdown.js"></script>
+<script src="assets/js/index.js"></script>
+<div class="info-paysage">
+    <svg fill="#333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h1.5C23.44 4.84 18.29 0 12 0l-.66.03 3.81 3.81 1.33-1.32zm-6.25-.77c-.59-.59-1.54-.59-2.12 0L1.75 8.11c-.59.59-.59 1.54 0 2.12l12.02 12.02c.59.59 1.54.59 2.12 0l6.36-6.36c.59-.59.59-1.54 0-2.12L10.23 1.75zm4.6 19.44L2.81 9.17l6.36-6.36 12.02 12.02-6.36 6.36zm-7.31.29C4.25 19.94 1.91 16.76 1.55 13H.05C.56 19.16 5.71 24 12 24l.66-.03-3.81-3.81-1.33 1.32z"/>
+    </svg>{% set lisibility = traduction.lisibility %}{% trans lisibility %}
+</div>
+</body>
+</html>

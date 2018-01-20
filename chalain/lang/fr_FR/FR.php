@@ -1,0 +1,58 @@
+<?php
+// Français
+$traduction['FR'] = array(
+    'accueil'   => "Accueil",
+    'actu'      => "Actualités",
+    'infos'     => "Informations",
+    'course'    => "Courses",
+    'inscrit'   => "Inscriptions",
+    'sponsor'   => "Nos Partenaires",
+    "programme" => "Programme",
+    "regle"     => "Réglementation sportive",
+    "contact"   => "Contact",
+    "result"  => "Résultats",
+    "contact_us"=> "Contactez-Nous",
+    "organisation"  => "<p>Organisation <a href=\"https://www.triathlons.fr/\" target=\"_blank\">Triath’Lons</a>,</p><p>Club du Triathlon de LONS-LE-SAUNIER</p>",
+    "velo"  => "Vélo",
+    "natation" => "Natation",
+    "cap"   => "Course à pied",
+    "tarif" => "TARIFS",
+    "partner_info" => "Découvrez le site web de nos partenaires",
+    "partner_contact" => 'Vous souhaitez devenir partenaire, <a href="Contact" target="_blank">contactez-nous</a>',
+    "licence" => "non-licenciés",
+    "inscrire" => "S'INSCRIRE",
+    "welcome" => "<h3>Bienvenue</h3>
+<p>Amoureux de nature, amoureux de la campagne, fanatiques de verdure, d'eaux claires et de chemins boisés, fadas de triple effort, soyez les bienvenues au Triathlon de Chalain !</p>
+<p>S'il est un site, dans le Jura, qui méritait d'accueillir une épreuve, c'est bien ce lac de Chalain, au coeur du Pays des Lacs. Le Domaine de Chalain, entouré de falaises, se situe à l'extrêmité Est du Lac. Cet écrin de verdure fait le bonheur, chaque année, des participants de tous âges, de tous niveaux, amoureux du triple efforts.</p>
+<p>Nager dans les eaux turquoises d'une étonnante limpidité, un parcours vélo sur des routes de campagne peu fréquentées, une course à pied en sous-bois, tel sera votre programme. Les 180 bénévoles souriant se mettront en 4 pour faciliter votre course et votre séjour en terre jurassienne.</p>",
+    "email" => "Votre email ",
+    "placeholder_email" => "Ecrire votre email",
+    "nom" => "Votre nom ",
+    "placeholder_nom" => "Ecrire votre nom prénom",
+    "message" => "Message ",
+    "placeholder_message" => "Détaillez au mieux votre demande d'information",
+    "securite" => "Code de sécurité ",
+    "placeholder_securite" => "Ecrire le résultat de 7 + 3",
+    "envoyer" => "ENVOYER",
+    "texte_message" => "Complèter et envoyer le formulaire ci-dessous",
+    "course_present" => "Présentation de la course ",
+    "mentions"  => "Mentions légales",
+    "lisibility" => "Pour une meilleur lisibilité, merci de mettre votre appareil en mode portrait",
+    "creation"  => "Réalisé par ",
+    "lire_article" => "Lire l'article",
+    "see_all_actu" => "Voir toute l'actualité",
+    "detail_course" => "Détails de la course",
+    "return_home" => "Retour à l'accueil",
+    "archive" => "Archive",
+    "arrondi" => "arrondi au degré supérieur",
+    "img_obligatoire" => "theme/combi-obligatoire-fr.png",
+    "img_accept" => "theme/combi-accepte-fr.png",
+    "img_interdit" => "theme/combi-interdite-fr.png",
+    "combi_obligatoire" => "COMBINAISON OBLIGATOIRE",
+    "combi_interdit" => "COMBINAISON INTERDITE",
+    "combi_accept" => "COMBINAISON ACCEPTEE",
+    "suivre"    => "Nous suivre sur Facebook",
+
+
+
+);

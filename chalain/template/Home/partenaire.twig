@@ -1,0 +1,14 @@
+<div class="bloc-titre" id="partenaire">
+    <div class="titre">{% set sponsor = traduction.sponsor %} {% trans sponsor %}</div>
+</div>
+<div class="content">
+    <div class="sous-titre">{% set partner_info = traduction.partner_info %}{% trans partner_info %}</div>
+    <div id="sponsors">
+        {% for partenaire in partenaires %}
+            <div class="sponsor"><a href="{{ partenaire.site }}" target="_blank"><img class="img-responsive" src="images/sponsors/{{ partenaire.image }}" alt="{{ partenaire.nom }}"/> </a></div>
+        {% endfor %}
+    </div>
+    <p class="aright info-sponsor"><a href="Contact">{% set partner_contact = traduction.partner_contact %} {% trans partner_contact %}</a></p>
+    <script>jQuery(document).ready(function($){ $("#sponsors").owlCarousel({ autoPlay: true, pagination: false }); });
+    </script>
+</div>

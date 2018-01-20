@@ -1,0 +1,81 @@
+{% extends 'layout.twig' %}
+
+{% block head %} Contact | Corrida du Parc - {{ parent() }} {% endblock %}
+
+{% block content %}
+
+    {% include 'header.twig' %}
+
+    <div class="bloc-titre-contact">
+        <div class="titre bleu">Contactez-Nous
+            <div class="bouton-return"><a href="Accueil" title="Retour à l'accueil">
+                    <svg height="24" full="#ffffff" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                    </svg></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content contact">
+
+        {% if session.errors %}
+            <div class="alerte">
+                {% for error in session.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% elseif session.success %}
+            <div class="succes">
+                Votre message a bien été envoyé, vous recevrez une réponse rapidement.
+            </div>
+        {% endif %}
+
+        <p>Complèter et envoyer le formulaire ci-dessous</p>
+
+        <form action="validate.php" method="post" class="form">
+
+            <div class="input-field">
+                <p type="Votre nom :">
+                    <input type="text" name="name" id="name" class="form-control" required aria-required="true" placeholder="&Eacute;crire votre nom prénom..." value="{% if session.inputs %}{{ session.inputs.name }}{% endif %}"/>
+                </p>
+            </div>
+            <div class="input-field">
+                <p type="Votre email :">
+                    <input type="text" name="email" id="email" class="form-control" placeholder="&Eacute;crire votre email..." required aria-required="true" value="{% if session.inputs %} {{ session.inputs.email }}{% endif %}"/>
+                </p>
+            </div>
+            <div class="input-field">
+                <p type="Votre message :">
+                    <textarea name="message" class="form-control" id="message" placeholder="Détaillez au mieux votre demande d'information..." required aria-required="true">{% if session.inputs %} {{ session.inputs.message }}{% endif %}</textarea>
+                </p>
+            </div>
+            <div class="input-field">
+                <p type="Code de sécurité :">
+                    <input type="text" name="code" id="code" class="form-control" placeholder="Ecrire le résultat de 7 + 3" required aria-required="true" value="{% if session.inputs %} {{ session.inputs.code }}{% endif %}"/>
+                </p>
+            </div>
+            <div class="submit">
+                <button type="submit" id="button-blue">Envoyer</button>
+                <div class="ease"></div>
+            </div>
+        </form>
+        <hr>
+        <div class="bloc-w50 zone-contact">
+            <div class="bloc-w20 map"><i class="fa fa-map-marker" aria-hidden="true"></i></div><!--
+        --><div class="bloc-w80">
+                <p>Triath'Lons</p>
+                <p>15 Avenue du Stade</p>
+                <p>39000 Lons-le-Saunier</p>
+            </div>
+        </div><!--
+    --><div class="bloc-w50 zone-contact zone-contact_bis">
+            <div class="bloc-w20"><i class="fa fa-phone" aria-hidden="true"></i></div><!--
+        --><div class="bloc-w80"><p><a href="tel:+33682880041">+33 (0)6.82.87.00.41</a></p></div>
+            <div class="bloc-w20"><i class="fa fa-envelope" aria-hidden="true"></i></div><!--
+        --><div class="bloc-w80"><p><a href="mailto:contact@triathlons.fr">contact@triathlons.fr</a></p></div>
+            <div class="bloc-w20"><i class="fa fa-facebook" aria-hidden="true"></i></div><!--
+        --><div class="bloc-w80"><p><a href="https://www.facebook.com/groups/triathlons39/" target="_blank">Suivez-nous sur Facebook</a></p></div>
+        </div>
+    </div>
+{% endblock %}

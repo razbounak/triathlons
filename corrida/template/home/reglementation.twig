@@ -1,0 +1,12 @@
+<div class="bloc-titre" id="regle">
+    <div class="titre">Réglementation Sportive</div>
+</div>
+
+<div class="bggreylight">
+    <div class="content texte">
+        {% for reglement in reglements %}<div class="text bloc-w50">
+                <h2>{{ reglement.name }}</h2>
+                {{ reglement.text | markdown }}
+            </div>{% endfor %}
+    </div>
+</div>

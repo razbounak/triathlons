@@ -1,0 +1,12 @@
+<div class="bloc-titre grey medal" id="resultat">
+    <div class="titre">Résultats</div>
+</div>
+
+<section class="bgfc">
+    <div class="content podium">
+        {% for resultat in resultats %}
+            <a href="https://corrida.triathlons.fr/fichier/{{ resultat.fichier }}" target="_blank">{{ resultat.nom }}</a>
+        {% endfor %}
+        <a href="Resultats" class="archive">Archive</a>
+    </div>
+</section>

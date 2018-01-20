@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>{% block head %} Triath'Lons {% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta name="author" content="Franck Contet - FCWD Agence Web"/>
+    <link rel="stylesheet" href="assets/css/app.css"/>
+    <link rel="stylesheet" href="assets/css/carousel.css"/>
+    <!-- Zone métadonnées -->
+    <meta property="og:site_name"    content="Triathlon de Chalain | Triath'Lons"/>
+    <meta property="og:locale"       content="fr_FR"/>
+    <meta property="og:type"         content="website"/>
+    <meta property="og:image"        content="{%if block("image_facebook") is defined%}{{block("image_facebook")}}{%else%}https://corrida.triathlons.fr/images/triathlon-2017.jpg{%endif%}"/>
+    <meta property="og:title"        content="{% if block("title_facebook") is defined %} {{ block("title_facebook") }}{% else %}Corrida du Parc {{ "now"|date('Y') }} {% endif %}"/>
+    <meta property="og:description"  content="{% if block("content_facebook") is defined %} {{ block("content_facebook") }}{% else %}Participez à la corrida du parc à Lons-Le-Saunier. Inscrivez-vous !{% endif %}"/>
+    <meta property="og:url"          content="{% if block("url_facebook") is defined %} {{ block("url_facebook") }}{% else %}https://corrida.triathlons.fr/index.php{% endif %}">
+    <meta name="twitter:card"        content="summary"/>
+    <meta name="twitter:site"        content="{% if block("url_twitter") is defined %} {{ block("url_twitter") }}{% else %}https://corrida.triathlons.fr/index.php{% endif %}"/>
+    <meta name="twitter:title"       content="{% if block("title_twitter") is defined %} {{ block("title_twitter") }}{% else %}Corrida du Parc {{ "now"|date('Y') }}{% endif %}"/>
+    <meta name="twitter:description" content="{% if block("content_twitter") is defined %} {{ block("content_twitter") }}{% else %}Participez au triathlon de chalain dans un lieu idyllique. Inscrivez-vous !{% endif %} !"/>
+    <meta name="twitter:image:src"   content="{%if block("image_twitter") is defined%}{{block("image_twitter")}}{%else%}https://corrida.triathlons.fr/images/triathlon-2017.jpg{%endif%}">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#06c4c9">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <meta name="theme-color" content="#06c4c9">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <script src="assets/js/jquery8.js"></script>
+</head>
+<body>
+{% block content %}
+
+{% endblock %}
+<footer>
+    <div class="footer content">
+        <div class="bloc-w30">
+            <div class="footer-logo">
+                <img src="theme/logo.png" alt="Corrida du Parc - Traith'Lons">
+                <p>Organisation <a href="https://www.triathlons.fr/" target="_blank">Triath’Lons</a>,</p>
+                <p>Club du Triathlon de LONS-LE-SAUNIER</p>
+            </div>
+        </div><!--
+        --><div class="bloc-w70">
+            <div class="url-footer" role="navigation">
+                <a href="Accueil">Accueil</a>
+                <a href="Actualites">Actualités</a>
+                <a href="Contact">Contact</a>
+                <a href="index.php#courses">Courses</a>
+                <a href="index.php#courses">Inscription</a>
+                <a href="index.php#partenaire">Nos Partenaires</a>
+                <a href="index.php#regle">Réglementation Sportive</a>
+                <a href="index.php#prog">Programme</a>
+                <a href="#"></a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="footer-info">
+        <p>&copy; 1987 - {{ "now"|date('Y') }} Triath’Lons / <a href="Mentions-legales">Mentions Légales</a> / Réalisé par : <a href="https://www.fcwd.fr/" target="_blank">Franck Contet - FCWD &reg;</a></p>
+    </div>
+</footer>
+<!-- Scripts -->
+<script src='assets/js/jquery.min.js'></script>
+<script src="assets/js/carousel.min.js"></script>
+</body>
+</html>

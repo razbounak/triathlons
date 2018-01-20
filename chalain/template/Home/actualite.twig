@@ -1,0 +1,24 @@
+<div class="bloc-titre" id="actu">
+    <div class="titre">{% set actu = traduction.actu %} {% trans actu %}
+        <div class="bouton-add"><a href="Actualites" title="{% set see_all_actu = traduction.see_all_actu %} {% trans see_all_actu %}">
+                <svg height="24" full="#ffffff" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                </svg></a>
+        </div>
+    </div>
+</div>
+<section>
+    {% for article in article %}
+        <article>
+            <div class="content">
+                <div class="article">
+                    <h2>{{ article.news_title }}</h2>
+                    <div class="date">{{ article.news_date | localizeddate("medium", "none", null, null, "cccc, d LLLL yyyy") | title }}</div>
+                    <div class="desc">{{ article.news_body | truncate(280, true, '...') | striptags | markdown }}</div>
+                    <div class="link"><a href="actualite-{{ article.news_id }}">Lire la suite...</a></div>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+</section>
